@@ -20,6 +20,14 @@ function insertBoard(board) {
     });
 }
 
+function solve(board) {
+    return true;
+}
+
+function displayError() {
+    console.log('Board unsolvable');
+}
+
 solverForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     console.log(extractBoard(cells));
