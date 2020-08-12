@@ -31,7 +31,8 @@ function solve(board) {
 }
 
 function isSolved(board) {
-    return true;
+    const flatBoard = board.flat();
+    return flatBoard.every((v) => v !== null);
 }
 
 function nextBoards() {
