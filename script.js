@@ -30,5 +30,11 @@ function displayError() {
 
 solverForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    console.log(extractBoard(cells));
+    const board = extractBoard(cells);
+    const isSolvable = solve(board);
+    if (isSolvable) {
+        insertBoard(board);
+        return;
+    }
+    displayError();
 });
