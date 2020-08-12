@@ -35,8 +35,23 @@ function isSolved(board) {
     return flatBoard.every((v) => v !== null);
 }
 
-function nextBoards() {
-    return [];
+function nextBoards(board) {
+    var result = [];
+    const emptySquare = nextEmptySquare(board);
+    if (emptySquare) {
+        const [y, x] = emptySquare;
+        for (var i = 1; i < 10; i++) {
+            var newBoard = [...board];
+            var row = [...newBoard[y]];
+            row[x] = i;
+            newBoard[y] = row;
+            result.push(newBoard);
+        }
+    }
+    return result;
+}
+function nextEmptySquare(board) {
+    return false;
 }
 
 function filterValid(variants) {
