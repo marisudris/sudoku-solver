@@ -89,7 +89,16 @@ function hasDuplicates(arr) {
 }
 
 function columnsAreValid(board) {
-    return false;
+    for (let row = 0; row < 9; row++) {
+        const column = [];
+        for (let col = 0; col < 9; col++) {
+            column.push(board[row][col]);
+        }
+        if (hasDuplicates(column)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function boxesAreValid(board) {
