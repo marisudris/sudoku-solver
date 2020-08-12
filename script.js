@@ -21,7 +21,29 @@ function insertBoard(board) {
 }
 
 function solve(board) {
+    if (isSolved(board)) {
+        return board;
+    } else {
+        const variants = nextBoards(board);
+        const validBoards = filterValid(variants);
+        return search(validBoards);
+    }
+}
+
+function isSolved(board) {
     return true;
+}
+
+function nextBoards() {
+    return [];
+}
+
+function filterValid(variants) {
+    return [];
+}
+
+function search(boards) {
+    return [];
 }
 
 function displayError() {
