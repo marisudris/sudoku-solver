@@ -13,6 +13,13 @@ function extractBoard(cells) {
     return board;
 }
 
+function insertBoard(board) {
+    const cellValues = board.flat().map((value) => value || '');
+    cells.forEach((cell) => {
+        cell.value = cellValues.shift();
+    });
+}
+
 solverForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     console.log(extractBoard(cells));
