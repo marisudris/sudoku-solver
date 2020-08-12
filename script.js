@@ -5,7 +5,12 @@ const cells = [...document.querySelectorAll('.cell')];
 const solveButton = document.querySelector('.button');
 
 function extractBoard(cells) {
-    return null;
+    const board = [];
+    const boardValues = cells.map((cell) => cell.value || null);
+    while (boardValues.length) {
+        board.push(boardValues.splice(0, 9));
+    }
+    return board;
 }
 
 solverForm.addEventListener('submit', (evt) => {
