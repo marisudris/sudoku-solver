@@ -61,8 +61,12 @@ function nextEmptySquare(board) {
     return false;
 }
 
-function filterValid(variants) {
-    return [];
+function filterValid(boards) {
+    return boards.filter((board) => isValid(board));
+}
+
+function isValid() {
+    return false;
 }
 
 function search(boards) {
