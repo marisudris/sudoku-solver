@@ -65,7 +65,30 @@ function filterValid(boards) {
     return boards.filter((board) => isValid(board));
 }
 
-function isValid() {
+function isValid(board) {
+    if (!rowsAreValid()) {
+        return false;
+    }
+
+    if (columnsAreValid(board)) {
+        return false;
+    }
+
+    if (!boxesAreValid(board)) {
+        return false;
+    }
+    return true;
+}
+
+function rowsAreValid(board) {
+    return false;
+}
+
+function columnsAreValid(board) {
+    return false;
+}
+
+function boxesAreValid(board) {
     return false;
 }
 
