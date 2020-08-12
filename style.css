@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --main: rgb(153, 50, 204);
+  --border-radius: 4px;
+  --thick: 4px solid black;
+}
+
+.solver-form {
+  display: grid;
+  place-content: center;
+  gap: 10px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 3em);
+  grid-template-rows: repeat(9, 3em);
+}
+
+.cell {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.cell:focus {
+  outline: none;
+  background-color: lightgreen;
+}
+
+.cell:nth-child(3n) {
+  border-right: var(--thick);
+}
+
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+  border-bottom: var(--thick);
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 45px;
+  padding: 0.5em 1.25em;
+  border: none;
+  color: white;
+  background-color: var(--main);
+  border-radius: var(--border-radius);
+}
