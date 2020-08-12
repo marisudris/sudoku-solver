@@ -81,7 +81,11 @@ function isValid(board) {
 }
 
 function rowsAreValid(board) {
-    return false;
+    return board.every(row => !hasDuplicates(row));
+}
+function hasDuplicates(arr) {
+    const noNullsArr = arr.filter((v) => v !== null);
+    return new Set(noNullsArr).size !== noNullsArr.length;
 }
 
 function columnsAreValid(board) {
