@@ -70,7 +70,7 @@ function isValid(board) {
         return false;
     }
 
-    if (columnsAreValid(board)) {
+    if (!columnsAreValid(board)) {
         return false;
     }
 
