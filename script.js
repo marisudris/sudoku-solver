@@ -92,7 +92,7 @@ function columnsAreValid(board) {
     for (let row = 0; row < 9; row++) {
         const column = [];
         for (let col = 0; col < 9; col++) {
-            column.push(board[row][col]);
+            column.push(board[col][row]);
         }
         if (hasDuplicates(column)) {
             return false;
