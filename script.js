@@ -6,7 +6,7 @@ const solveButton = document.querySelector('.button');
 
 function extractBoard(cells) {
     const board = [];
-    const boardValues = cells.map((cell) => cell.value || null);
+    const boardValues = cells.map((cell) => Number(cell.value) || null);
     while (boardValues.length) {
         board.push(boardValues.splice(0, 9));
     }
