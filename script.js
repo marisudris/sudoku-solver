@@ -66,7 +66,7 @@ function filterValid(boards) {
 }
 
 function isValid(board) {
-    if (!rowsAreValid()) {
+    if (!rowsAreValid(board)) {
         return false;
     }
 
