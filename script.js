@@ -102,7 +102,23 @@ function columnsAreValid(board) {
 }
 
 function boxesAreValid(board) {
-    return false;
+    let indexes = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+    ];
+    for (let i of indexes) {
+        for (let j of indexes) {
+            const box = [];
+            for (let index1 of i) {
+                for (let index2 of j) {
+                    box.push(board[index1][index2]);
+                }
+            }
+            if (hasDuplicates(box)) return false;
+        }
+    }
+    return true;
 }
 
 function search(boards) {
