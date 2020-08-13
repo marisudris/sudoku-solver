@@ -141,9 +141,9 @@ function displayError() {
 solverForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const board = extractBoard(cells);
-    const isSolvable = solve(board);
-    if (isSolvable) {
-        insertBoard(board);
+    const solvedBoard = solve(board);
+    if (solvedBoard) {
+        insertBoard(solvedBoard);
         return;
     }
     displayError();
