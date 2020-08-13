@@ -122,7 +122,16 @@ function boxesAreValid(board) {
 }
 
 function search(boards) {
-    return [];
+    if (boards.length === 0) {
+        return false;
+    }
+    const next = boards.shift();
+    const branch = solve(next);
+    if (branch !== false) {
+        return branch;
+    } else {
+        return search(boards);
+    }
 }
 
 function displayError() {
