@@ -6,6 +6,7 @@
 
 :root {
   --main: rgb(153, 50, 204);
+  --main-dark: rgb(113, 10, 174);
   --border-radius: 4px;
   --thick: 4px solid black;
 }
@@ -52,4 +53,12 @@
   color: white;
   background-color: var(--main);
   border-radius: var(--border-radius);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+.button:hover {
+  background-color: var(--main-dark);
 }
