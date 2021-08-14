@@ -32,6 +32,19 @@ function solve(board) {
     }
 }
 
+function search(boards) {
+    if (boards.length === 0) {
+        return false;
+    }
+    const next = boards.shift();
+    const branch = solve(next);
+    if (branch !== false) {
+        return branch;
+    } else {
+        return search(boards);
+    }
+}
+
 function isSolved(board) {
     const flatBoard = board.flat();
     return flatBoard.every((v) => v !== null);
@@ -121,19 +134,6 @@ function boxesAreValid(board) {
         }
     }
     return true;
-}
-
-function search(boards) {
-    if (boards.length === 0) {
-        return false;
-    }
-    const next = boards.shift();
-    const branch = solve(next);
-    if (branch !== false) {
-        return branch;
-    } else {
-        return search(boards);
-    }
 }
 
 function displayError() {
