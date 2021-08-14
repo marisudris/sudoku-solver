@@ -1,0 +1,32 @@
+{
+    "name": "sudoku-solver",
+    "version": "1.0.0",
+    "description": "brute force sudoku solver",
+    "main": "script.js",
+    "scripts": {
+        "serve": "webpack serve"
+    },
+    "devDependencies": {
+        "css-loader": "^6.2.0",
+        "html-webpack-plugin": "^5.3.2",
+        "style-loader": "^3.2.1",
+        "webpack": "^5.52.1",
+        "webpack-cli": "^4.8.0",
+        "webpack-dev-server": "^4.2.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/marisudris/sudoku-solver.git"
+    },
+    "keywords": [
+        "javascript",
+        "sudoku",
+        "solver"
+    ],
+    "author": "Māris Ūdris <maris.udris.lv@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/marisudris/sudoku-solver/issues"
+    },
+    "homepage": "https://github.com/marisudris/sudoku-solver#readme"
+}
