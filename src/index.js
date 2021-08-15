@@ -4,7 +4,6 @@ import './style.css';
 
 const solverForm = document.querySelector('.solver-form');
 const cells = [...document.querySelectorAll('.cell')];
-const solveButton = document.querySelector('.button');
 
 function extractBoard(cells) {
     const board = [];
