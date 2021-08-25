@@ -4,13 +4,17 @@ import { solve } from './core.js';
 
 function handleSubmit(evt) {
     evt.preventDefault();
-    const board = extractBoard(cells);
-    const solvedBoard = solve(board);
-    if (solvedBoard) {
-        insertBoard(solvedBoard);
+    if (!validateInputs(cells)) {
+        displayError('Inputs are not valid');
         return;
     }
-    displayError();
+    const board = extractBoard(cells);
+    const solution = solve(board);
+    if (!solution) {
+        displayError('Board not solvable');
+        return;
+    }
+    insertBoard(solution);
 }
 
 function handleModalClick(evt) {

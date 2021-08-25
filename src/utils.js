@@ -16,8 +16,8 @@ function insertBoard(board) {
     });
 }
 
-function displayError() {
-    openModal('Board not solvable');
+function displayError(message) {
+    openModal(message);
 }
 
 function openModal(content = '') {
