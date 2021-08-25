@@ -9,6 +9,19 @@ function extractBoard(cells) {
     return board;
 }
 
+function validateInputs(cells) {
+    return cells.every(function (cell) {
+        // Ignore empty cells
+        if (cell.value === '') {
+            return true;
+        }
+        const cellValue = Number(cell.value);
+        return (
+            Number.isInteger(cellValue) && cellValue >= 1 && cellValue <= 9
+        );
+    });
+}
+
 function insertBoard(board) {
     const cellValues = board.flat().map((value) => value || '');
     cells.forEach((cell) => {
@@ -30,4 +43,11 @@ function closeModal() {
     modal.classList.remove('modal--open');
 }
 
-export { extractBoard, insertBoard, displayError, openModal, closeModal };
+export {
+    extractBoard,
+    insertBoard,
+    validateInputs,
+    displayError,
+    openModal,
+    closeModal,
+};

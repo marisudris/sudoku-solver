@@ -1,11 +1,17 @@
 import { cells } from './elements.js';
-import { extractBoard, insertBoard, displayError, closeModal } from './utils.js';
+import {
+    extractBoard,
+    insertBoard,
+    validateInputs,
+    displayError,
+    closeModal,
+} from './utils.js';
 import { solve } from './core.js';
 
 function handleSubmit(evt) {
     evt.preventDefault();
     if (!validateInputs(cells)) {
-        displayError('Inputs are not valid');
+        displayError('Invalid input');
         return;
     }
     const board = extractBoard(cells);
