@@ -1,4 +1,4 @@
-import { cells } from './elements.js';
+import { cells, modal, modalContent } from './elements.js';
 
 function extractBoard(cells) {
     const board = [];
@@ -17,7 +17,17 @@ function insertBoard(board) {
 }
 
 function displayError() {
-    console.log('Board unsolvable');
+    openModal('Board not solvable');
 }
 
-export { extractBoard, insertBoard, displayError };
+function openModal(content = '') {
+    modal.classList.add('modal--open');
+    modalContent.textContent = content;
+}
+
+function closeModal() {
+    modalContent.textContent = null;
+    modal.classList.remove('modal--open');
+}
+
+export { extractBoard, insertBoard, displayError, openModal, closeModal };

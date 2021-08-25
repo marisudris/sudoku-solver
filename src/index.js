@@ -1,7 +1,9 @@
 'use strict';
 
 import './style.css';
-import { handleSubmit } from './handlers.js';
-import { solverForm } from './elements.js';
+import { handleSubmit, handleModalClick, handleEscape } from './handlers.js';
+import { solverForm, modal } from './elements.js';
 
 solverForm.addEventListener('submit', handleSubmit);
+modal.addEventListener('click', handleModalClick);
+window.addEventListener('keydown', handleEscape)

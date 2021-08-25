@@ -12,6 +12,7 @@
 }
 
 body {
+  font-family: sans-serif;
   background: linear-gradient(45deg, #085078 10%, #85d8ce 90%) no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -89,4 +90,40 @@ body {
 .button--ghost:hover, .button--ghost:focus {
   color: #085078;
   background-color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height:100vh ;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.modal--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal__content {
+  font-weight: bold;
+  background-color: white;
+  min-width: 35ch;
+  padding: 2em;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.2);
+  transition: transform 0.2s ease-out;
+}
+
+.modal--open .modal__content {
+  transform: scale(1);
 }
