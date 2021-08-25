@@ -7,14 +7,23 @@
 :root {
   --main: rgb(153, 50, 204);
   --main-dark: rgb(113, 10, 174);
-  --border-radius: 4px;
+  --border-radius: 25px;
   --thick: 4px solid black;
+}
+
+body {
+  background: linear-gradient(45deg, #085078 10%, #85d8ce 90%) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  display: flow-root; /* establish a b.f.c. & contain margins */
 }
 
 .solver-form {
   display: grid;
   place-content: center;
   gap: 10px;
+  margin-top: 3em;
 }
 .board {
   display: grid;
@@ -43,6 +52,10 @@
   border-bottom: var(--thick);
 }
 
+.cell:nth-child(9n) {
+  border-right: 1px solid black;
+}
+
 .button {
   display: inline-flex;
   justify-content: center;
@@ -51,14 +64,29 @@
   padding: 0.5em 1.25em;
   border: none;
   color: white;
-  background-color: var(--main);
+  background-color: var(--main-dark);
   border-radius: var(--border-radius);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.2s ease-in;
+  transition: all 0.2s ease-in;
 }
 
-.button:hover {
-  background-color: var(--main-dark);
+.button:hover, .button:focus {
+  background-color: var(--main);
+}
+
+.button:focus {
+  outline: transparent;
+}
+
+.button--ghost {
+  color: white;
+  background-color: unset;
+  border: 3px solid white;
+}
+
+.button--ghost:hover, .button--ghost:focus {
+  color: #085078;
+  background-color: white;
 }
