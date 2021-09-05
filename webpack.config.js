@@ -1,31 +1,42 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const mode =
+    process.env.NODE_ENV == 'production' ? 'production' : 'development';
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'development',
+    mode,
     output: {
-        path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[contenthash].bundle.js',
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'public'),
+            directory: './dist',
         },
+        open: true,
         compress: true,
         port: 8080,
     },
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
         ],
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].[contenthash].css',
+        }),
+        new CleanWebpackPlugin(),
     ],
 };
