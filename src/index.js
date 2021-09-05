@@ -1,6 +1,6 @@
 'use strict';
 
-import './style.css';
+import './css/style.css';
 import { handleSubmit, handleModalClick, handleEscape } from './handlers.js';
 import { solverForm, modal } from './elements.js';
 
