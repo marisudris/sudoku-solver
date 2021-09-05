@@ -16,9 +16,7 @@ function validateInputs(cells) {
             return true;
         }
         const cellValue = Number(cell.value);
-        return (
-            Number.isInteger(cellValue) && cellValue >= 1 && cellValue <= 9
-        );
+        return Number.isInteger(cellValue) && cellValue >= 1 && cellValue <= 9;
     });
 }
 
@@ -43,6 +41,19 @@ function closeModal() {
     modal.classList.remove('modal--open');
 }
 
+function markInputs(cells) {
+    unmarkInputs(cells);
+    cells.forEach((cell) => {
+        if (cell.value.length) {
+            cell.style.color = 'rgb(153, 50, 204)';
+        }
+    });
+}
+
+function unmarkInputs(cells) {
+    cells.forEach((cell) => (cell.style.color = ''));
+}
+
 export {
     extractBoard,
     insertBoard,
@@ -50,4 +61,6 @@ export {
     displayError,
     openModal,
     closeModal,
+    markInputs,
+    unmarkInputs,
 };

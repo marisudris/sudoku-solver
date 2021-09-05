@@ -5,6 +5,8 @@ import {
     validateInputs,
     displayError,
     closeModal,
+    markInputs,
+    unmarkInputs,
 } from './utils.js';
 import { solve } from './core.js';
 
@@ -20,6 +22,7 @@ function handleSubmit(evt) {
         displayError('Board not solvable');
         return;
     }
+    markInputs(cells);
     insertBoard(solution);
 }
 
@@ -36,4 +39,8 @@ function handleEscape(evt) {
     }
 }
 
-export { handleSubmit, handleModalClick, handleEscape };
+function handleReset(evt) {
+    unmarkInputs(cells);
+}
+
+export { handleSubmit, handleModalClick, handleEscape, handleReset };
